@@ -60,3 +60,9 @@
    faultMessage = (vmodl.LocalizableMessage) []
 }
 
+[2016-04-10 21:43:29,147 root ERROR] Unknown command or namespace hardware ipmi sel log
+[2016-04-10 22:07:52,815 root ERROR] Unknown command or namespace network ip dns serch list
+[2016-04-10 22:12:56,135 root ERROR] Missing required parameter -n|--nic-name
+[2016-04-10 22:13:16,385 root ERROR] Unknown command or namespace network nic vmnic0 vlan stats get
+[2016-04-10 22:13:31,055 root ERROR] Unknown command or namespace network nic vlan stats get vmnic0
+[2016-04-10 22:13:48,899 root ERROR] get failed: VLAN stats are disabled for vmnic0 please enable them first.

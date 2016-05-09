@@ -22,8 +22,6 @@ SECRET_KEY = '3w$09j*k_c0wr4hq@5-9j74531q8+fv*iquc*6#nw228o@=me1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -36,6 +34,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'vsphclient',
+    #'loginsys',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -53,14 +53,16 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'vSphereLinuxClient/templates',
+            'vsphclient/templates',
+            #'loginsys/templates',
             ],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': DEBUG,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
-                'django.contrib.auth..context_processors.auth',
+                'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
         },

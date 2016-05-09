@@ -1,0 +1,119 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <title>vSphere Linux Client</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <link href="{% static "css/main.css" %}" rel="stylesheet" media="all">
+	{% block script %}
+	{% endblock %}
+</head>
+<body link="black" alink="black" vlink="black">
+        <div class="upper-panel">
+		<div class="menu-item" id="file-button">
+			<span class="item-item">File</span>
+				<ul style="width: 45px;">
+      				<li style="margin-top: 3px; margin-bottom: 3px;">Exit</li>
+    				</ul>
+		</div>
+		<div class="menu-item" id="view-button">
+			<span class="item-item">View</span>
+                                <ul style="width: 120px;">
+					<li style="margin-top: 3px; margin-bottom: 4px; padding-left: 6px;">Back</li>
+					<li style="margin-bottom: 4px; padding-left: 6px;">Forward</li>
+      					<li style="margin-bottom: 4px; padding-left: 6px;">Home</li>
+					<li style="background-color: #bdbdbd;
+    						height: 1px;
+    						margin-top: 6px;
+    						margin-bottom: 3px;"></li>
+                                        <li style="margin-bottom: 3px; padding-left: 6px;">Administration<img src="{% static "img/next-menu-point.png" %}" id="image" style="margin-left: 25px; margin-bottom: 3px;"></li>
+    				</ul>
+		</div>
+		<div class="menu-item" id="inventory-button">
+			<span class="item-item">Inventory</span>
+                                <ul style="width: 92px;">
+                                        <li style="margin-top: 3px; margin-bottom: 3px; padding-left: 32px;">Host<img src="{% static "img/next-menu-point.png" %}" id="image" style="margin-left: 25px; margin-bottom: 3px;"></li>
+                                </ul>
+		</div>
+  		<div class="menu-item">
+			<span class="item-item">Help</span>
+                                <ul style="width: 160px;">
+                                        <li style="margin-top: 3px; margin-bottom: 3px; padding-left: 10px;">About VMware vSphere</li>
+                                </ul>
+                </div>
+        </div>
+        <div class="navigation-panel">
+                <a href="javascript:history.back()"><img src="{% static "img/back.png" %}" id="image"></a>
+                <a href="javascript:history.forward()"><img src="{% static "img/forward.png" %}" id="image"></a>
+                <div class="menu"><a href="/vsphclient/home/"><img src="{% static "img/home.png" %}" id="image">Home</a>
+		{% block navigation %}
+		{% endblock %}	
+                </div>
+        </div>
+        <div class="main-area">
+        {% block main-area %}
+        {% endblock %}
+        </div>
+<script>
+var prev;
+$('.vm-state').on('click', function() {
+        if (prev != undefined) {
+                prev.removeClass('active-click');
+        }
+        $(this).addClass('active-click');
+        prev = $(this);
+});
+
+var prev;
+$('.vm-state').on('mouseover', function() {
+        $(this).addClass('active');
+});
+
+var prev;
+$('.vm-state').on('mouseout', function() {
+        $(this).removeClass('active');
+});
+
+var prev;
+$('.item').on('click', function() {
+        if (prev != undefined) {
+                prev.removeClass('active');
+        }
+        $(this).addClass('active');
+        prev = $(this);
+});
+
+$('.toggle-link').on('click', function() {
+	$(this).toggleClass('active');
+	$(this).next('.toggle-content').slideToggle(100);
+});
+
+var prev;
+$('.item-item').on('mouseover', function() {
+        $(this).addClass('active');
+});
+
+var prev;
+$('.menu-item span').on('mouseout', function() {
+        $(this).removeClass('active');
+});
+
+var prev2;
+$('.menu-item span').on('click', function() {
+        var $el = $(this).parent('.menu-item');
+        if( $el.hasClass('active-click')) {
+                $el.removeClass('active-click');
+        } else {
+                if(prev2 != undefined) {
+                        prev2.parent('.menu-item').removeClass('active');
+                }
+                prev2 = $(this);
+                $el.addClass('active');
+        }
+        prev2 = $(this);
+});
+</script>
+</body>
+

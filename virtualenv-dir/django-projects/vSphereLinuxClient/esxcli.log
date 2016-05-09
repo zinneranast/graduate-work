@@ -1,0 +1,5 @@
+[2016-04-15 23:24:47,702 root ERROR] Unknown command or namespace list
+[2016-04-15 23:25:28,526 root ERROR] Unknown command or namespace vm processlist
+[2016-04-20 01:28:35,353 root ERROR] Missing required parameter -w|--world-id
+       Missing required parameter -t|--type
+[2016-04-20 01:28:46,575 root ERROR] Missing required parameter -t|--type

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block script %}
+{% endblock %}
+
+{% block navigation %}
+<img src="{% static "img/inventory-choise.png" %}" id="image">Inventory
+<a href="/vsphclient/"><img src="{% static "img/inventory.png" %}" id="image">Inventory</a>
+{% endblock %}
+
+{% block recent-tasks %}
+{% for i in result %}
+<p>{{ i }}</p>
+{% endfor %}
+{% endblock %}
+
